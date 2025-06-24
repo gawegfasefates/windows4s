@@ -3,6 +3,7 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
+      RAM_SIZE: "16G" 
       VERSION: "11"
     devices:
       - /dev/kvm
@@ -17,3 +18,4 @@ services:
       - ./windows:/storage
     restart: always
     stop_grace_period: 2m
+    command: -device ich9-intel-hda -device hda-output -audio alsa
